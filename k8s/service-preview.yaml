@@ -7,6 +7,5 @@ spec:
   selector:
     app: color-bg
   ports:
-      - nodePort: 32000
-        protocol: TCP
+      - protocol: TCP
         port: 8081
