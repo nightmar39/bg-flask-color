@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Rollout
+metadata:
+  name: color-rollout
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: color-bg
+  template:
+    metadata:
+      labels:
+        app: color-bg
+    spec:
+      containers:
+        - name: flask-color
+          image: docker.io/nightmar39/bg-flask-color:red
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
+  strategy:
+    blueGreen:
+      activeService: color-bg-active
+      previewService: color-bg-preview
+      autoPromotionEnabled: false
