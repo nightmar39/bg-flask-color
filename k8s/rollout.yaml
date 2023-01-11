@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: flask-color
-          image: docker.io/nightmar39/bg-flask-color:BLUE
+          image: docker.io/nightmar39/bg-flask-color:blue
           ports:
             - name: http
               containerPort: 8000
